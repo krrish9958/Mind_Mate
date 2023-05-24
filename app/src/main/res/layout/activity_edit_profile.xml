@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@null"
-    tools:context=".ProfileFragment">
+    tools:context=".EditProfileActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -32,13 +32,13 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/logoutBtnProfile"
+        android:id="@+id/saveBtn"
         android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="100dp"
-        android:text="log out"
+        android:text="Save"
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -61,7 +61,7 @@
         android:layout_marginStart="130dp"
         android:layout_marginTop="40dp"
 
-        android:text="Hello"
+        android:text="Edit"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -94,8 +94,8 @@
             android:id="@+id/nameEt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Name"
-            android:focusable="false"/>
+            android:hint="Name" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -122,7 +122,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Email"
-            android:focusable="false"/>
+            android:focusable="false"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -189,28 +190,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Gender"
-            android:focusable="false"/>
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/editProfileIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:src="@drawable/baseline_edit_24"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintStart_toEndOf="@+id/cardView" />
 
-    <TextView
-        android:id="@+id/editProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="Edit profile"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editProfileIcon"
-        app:layout_constraintStart_toEndOf="@+id/editProfileIcon"
-        app:layout_constraintTop_toTopOf="@+id/editProfileIcon" />
+
 
     <TextView
         android:id="@+id/userName"
@@ -218,7 +202,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
 
-        android:text="Username"
+        android:text="Profile"
         android:textColor="#470271"
         android:textSize="24sp"
         android:textStyle="bold"
