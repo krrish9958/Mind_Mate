@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+         />
+    <item
+        android:id="@+id/journal"
+        android:icon="@drawable/ic_journal"
+        android:title="Journal" />
+    <item
+        android:id="@+id/connect"
+        android:icon="@drawable/ic_post"
+        android:title="Connect" />
+    <item
+        android:id="@+id/selfCare"
+        android:icon="@drawable/ic_content"
+        android:title="Self Care" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+
+</menu>

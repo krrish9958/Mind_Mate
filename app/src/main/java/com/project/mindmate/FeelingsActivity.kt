@@ -24,18 +24,18 @@ import com.project.mindmate.utilities.SCARED_EMOJI
 import com.project.mindmate.utilities.TIRED_EMOJI
 
 class FeelingsActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityFeelingsBinding
-    private lateinit var happyKeywords : ArrayList<String>
-    private lateinit var sadKeywords : ArrayList<String>
-    private lateinit var angryKeywords : ArrayList<String>
-    private lateinit var depressedKeywords : ArrayList<String>
-    private lateinit var anxiousKeywords : ArrayList<String>
-    private lateinit var scaredKeywords : ArrayList<String>
-    private lateinit var tiredKeywords : ArrayList<String>
-    private lateinit var cryingKeywords : ArrayList<String>
-    private lateinit var mehKeywords : ArrayList<String>
-    private lateinit var relievedKeywords : ArrayList<String>
-    private lateinit var swingsKeywords : ArrayList<String>
+    private lateinit var binding: ActivityFeelingsBinding
+    private lateinit var happyKeywords: ArrayList<String>
+    private lateinit var sadKeywords: ArrayList<String>
+    private lateinit var angryKeywords: ArrayList<String>
+    private lateinit var depressedKeywords: ArrayList<String>
+    private lateinit var anxiousKeywords: ArrayList<String>
+    private lateinit var scaredKeywords: ArrayList<String>
+    private lateinit var tiredKeywords: ArrayList<String>
+    private lateinit var cryingKeywords: ArrayList<String>
+    private lateinit var mehKeywords: ArrayList<String>
+    private lateinit var relievedKeywords: ArrayList<String>
+    private lateinit var swingsKeywords: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class FeelingsActivity : AppCompatActivity() {
 
 
         binding.navigateToHomeBtn2.setOnClickListener {
-            val intent = Intent(this , HomeActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             //
         }
@@ -83,7 +83,7 @@ class FeelingsActivity : AppCompatActivity() {
 
         val user = FirebaseAuth.getInstance().currentUser
 
-        if (user!=null){
+        if (user != null) {
             val userUid = user.uid
 
             val usersMoodCollection = firestore.collection("users")
@@ -93,7 +93,7 @@ class FeelingsActivity : AppCompatActivity() {
                 Toast.makeText(this, "Mood saved successfully!", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@FeelingsActivity, HomeActivity::class.java))
             }
-                .addOnFailureListener{ e->
+                .addOnFailureListener { e ->
                     Toast.makeText(this, "Error : ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         }
@@ -102,34 +102,103 @@ class FeelingsActivity : AppCompatActivity() {
 
     private fun keywordsDefinition() {
         happyKeywords = arrayListOf(
-            "happy", "smiling", "pleased", "cheerful" , "merry", "delighted", "peaceful", "elated",
-            "lively", "pleasant", "ecstatic", "content", "grateful", "radiant", "amused"
+            "happy", "smiling", "pleased", "cheerful", "merry", "delighted", "peaceful", "elated",
+            "lively", "pleasant", "ecstatic", "content", "grateful", "radiant", "amused", "great"
         )
 
         sadKeywords = arrayListOf(
-            "sad", "sorry", "unhappy", "mournful", "heartbroken", "cheerless", "grief", "hurting", "hurt",
-            "gloomy", "dull", "low", "troubled", "sick at heart", "not happy", "down", "overwhelmed", "upset",
-            "blue", "miserable", "distressed", "heavy hearted", "tearful", "frustrated"
+            "sad",
+            "sorry",
+            "unhappy",
+            "mournful",
+            "heartbroken",
+            "cheerless",
+            "grief",
+            "hurting",
+            "hurt",
+            "gloomy",
+            "dull",
+            "low",
+            "troubled",
+            "sick at heart",
+            "not happy",
+            "down",
+            "overwhelmed",
+            "upset",
+            "blue",
+            "miserable",
+            "distressed",
+            "heavy hearted",
+            "tearful",
+            "frustrated"
         )
 
         angryKeywords = arrayListOf(
-            "annoyed", "angry", "offended", "bitter", "enraged", "furious", "heated", "irritated",
-            "resentful", "mad", "uptight", "irritable", "irritating", "pissed", "provoked", "sulking",
-            "raging", "fuming", " hateful"
+            "annoyed",
+            "angry",
+            "offended",
+            "bitter",
+            "enraged",
+            "furious",
+            "heated",
+            "irritated",
+            "resentful",
+            "mad",
+            "uptight",
+            "irritable",
+            "irritating",
+            "pissed",
+            "provoked",
+            "sulking",
+            "raging",
+            "fuming",
+            " hateful"
         )
 
         depressedKeywords = arrayListOf(
-            "depressed", "hopeless", "numb", "isolated", "alone", "joyless", "defeated", "discouraged",
-            "disheartened", "lifeless", "empty", "null", "nothing", "despairing", "depress", "depression", "depressing"
+            "depressed",
+            "hopeless",
+            "numb",
+            "isolated",
+            "alone",
+            "joyless",
+            "defeated",
+            "discouraged",
+            "disheartened",
+            "lifeless",
+            "empty",
+            "null",
+            "nothing",
+            "despairing",
+            "depress",
+            "depression",
+            "depressing"
         )
 
         anxiousKeywords = arrayListOf(
-            "anxious", "nervous", "anxiety", "worried", "uneasy", "tense", "restless", "stressed", "panicky",
-            "panic", "unsettled", "insecure"
+            "anxious",
+            "nervous",
+            "anxiety",
+            "worried",
+            "uneasy",
+            "tense",
+            "restless",
+            "stressed",
+            "panicky",
+            "panic",
+            "unsettled",
+            "insecure"
         )
 
         scaredKeywords = arrayListOf(
-            "fearful", "scared", "terrified", "horror", "frightened", "startled", "shaken", "horror stricken"
+            "fearful",
+            "scared",
+            "terrified",
+            "horror",
+            "frightened",
+            "startled",
+            "shaken",
+            "horror stricken"
         )
 
         tiredKeywords = arrayListOf(
@@ -138,7 +207,15 @@ class FeelingsActivity : AppCompatActivity() {
         )
 
         cryingKeywords = arrayListOf(
-            "crying", "weeping", "sobbing", "wailing", "bawling", "emotional", "pained", "agony", "misery",
+            "crying",
+            "weeping",
+            "sobbing",
+            "wailing",
+            "bawling",
+            "emotional",
+            "pained",
+            "agony",
+            "misery",
             "woe"
         )
         mehKeywords = arrayListOf(
@@ -157,52 +234,39 @@ class FeelingsActivity : AppCompatActivity() {
     private fun detectMood() {
         val userMood = binding.etMood.text.toString().toLowerCase().trim()
 
-        var detectedMood : String? = null
-
         if (happyKeywords.contains(userMood)) {
-            detectedMood = "happy"
+
             binding.tvEmoji.text = HAPPY_EMOJI
-        }
-        else if (sadKeywords.contains(userMood)){
-            detectedMood = "sad"
+        } else if (sadKeywords.contains(userMood)) {
+
             binding.tvEmoji.text = SAD_EMOJI
-        }
-        else if (angryKeywords.contains(userMood)){
-            detectedMood = "angry"
+        } else if (angryKeywords.contains(userMood)) {
+
             binding.tvEmoji.text = ANGRY_EMOJI
-        }
-        else if (depressedKeywords.contains(userMood)){
-            detectedMood = "depressed"
+        } else if (depressedKeywords.contains(userMood)) {
+
             binding.tvEmoji.text = DEPRESSED_EMOJI
-        }
-        else if(anxiousKeywords.contains(userMood)){
-            detectedMood = "anxious"
-            binding.tvEmoji.text  = NEUTRAL_EMOJI
-        }
-        else if (scaredKeywords.contains(userMood)){
-            binding.tvEmoji.text  = SCARED_EMOJI
-        }
-        else if (tiredKeywords.contains(userMood)){
-            detectedMood = "tired"
+        } else if (anxiousKeywords.contains(userMood)) {
+
+            binding.tvEmoji.text = NEUTRAL_EMOJI
+        } else if (scaredKeywords.contains(userMood)) {
+            binding.tvEmoji.text = SCARED_EMOJI
+        } else if (tiredKeywords.contains(userMood)) {
+
             binding.tvEmoji.text = TIRED_EMOJI
-        }
-        else if (cryingKeywords.contains(userMood)){
-            detectedMood = "crying"
-            binding.tvEmoji.text  = CRYING_EMOJI
-        }
-        else if (mehKeywords.contains(userMood)){
-            detectedMood = "meh"
+        } else if (cryingKeywords.contains(userMood)) {
+
+            binding.tvEmoji.text = CRYING_EMOJI
+        } else if (mehKeywords.contains(userMood)) {
+
             binding.tvEmoji.text = IDK_EMOJI
-        }
-        else if (relievedKeywords.contains(userMood)){
-            detectedMood = "relieved"
-            binding.tvEmoji.text  = RELEIVED_EMOJI
-        }
-        else if (swingsKeywords.contains(userMood)){
-            detectedMood = "mood swings"
+        } else if (relievedKeywords.contains(userMood)) {
+
+            binding.tvEmoji.text = RELEIVED_EMOJI
+        } else if (swingsKeywords.contains(userMood)) {
+
             binding.tvEmoji.text = MOOD_SWINGS
-        }
-        else{
+        } else {
             binding.tvEmoji.text = ""
         }
     }
