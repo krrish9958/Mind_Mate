@@ -10,13 +10,13 @@ import java.util.Calendar
 import java.util.Locale
 
 class EditProfileActivity : AppCompatActivity() {
-    private lateinit var datePickeEt: TextView
+    private lateinit var datePickerEt: TextView
     private lateinit var datePickerBtn: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
-        datePickeEt = findViewById(R.id.dobEt)
+        datePickerEt = findViewById(R.id.dobEt)
         val myCalender = Calendar.getInstance()
         val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
             myCalender.set(Calendar.YEAR, year)
@@ -38,6 +38,6 @@ class EditProfileActivity : AppCompatActivity() {
     private fun upDateLable(myCalender: Calendar) {
         val myFormat = "dd-MM-yyyy"
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        datePickeEt.setText(sdf.format(myCalender.time))
+        datePickerEt.setText(sdf.format(myCalender.time))
     }
 }

@@ -3,7 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/adamina</item>
         <item>@font/aladin</item>
+        <item>@font/inter</item>
         <item>@font/inter_bold</item>
+        <item>@font/inter_medium</item>
         <item>@font/ubuntu</item>
     </array>
 </resources>
