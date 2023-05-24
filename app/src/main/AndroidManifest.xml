@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MindMate"
         tools:targetApi="31">
+        <activity android:name=".AddJournalsActivity"
+            android:exported="false"/>
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
