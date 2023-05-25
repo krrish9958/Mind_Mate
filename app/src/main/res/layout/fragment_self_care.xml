@@ -31,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
@@ -39,7 +40,7 @@
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12">
+        app:layout_constraintTop_toBottomOf="@+id/searchSelfCare">
 
         <ImageView
             android:id="@+id/imageView13"
@@ -88,10 +89,31 @@
             tools:layout_editor_absoluteY="169dp" />
     </androidx.cardview.widget.CardView>
 
+
+    <SearchView
+        android:id="@+id/searchSelfCare"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/search_bg"
+        android:elevation="8dp"
+        android:hapticFeedbackEnabled="false"
+        android:iconifiedByDefault="false"
+        android:queryBackground="@null"
+        android:queryHint="find helpful things.."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12">
+
+    </SearchView>
+
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="370dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#AB9CF6"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,5 +145,17 @@
             android:src="@drawable/breathing" />
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/selfCareRecyclerView"
+        android:layout_width="409dp"
+        android:layout_height="295dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        tools:listitem="@layout/list_item_explorecard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
