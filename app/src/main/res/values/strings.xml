@@ -13,9 +13,10 @@
     <string name="therapist_3">Ryan Gagnok</string>
     <string name="therapist_4">Alex Starnes</string>
     <string name="therapist_5">Mark Williams</string>
+    <string name="item_label">Gender</string>
     <string name="client_id" tools:ignore="TypographyDashes">968087283692-89ba89t3ammids62aosajtmbnuk19j3j.apps.googleusercontent.com</string>
     <string name="large_text">
-       
+
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."

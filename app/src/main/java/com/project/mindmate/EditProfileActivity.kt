@@ -3,8 +3,12 @@ package com.project.mindmate
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -15,6 +19,17 @@ class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
+
+        val items = listOf("Male","Female")
+        val gender : AutoCompleteTextView = findViewById(R.id.gender)
+        val adapter = ArrayAdapter(this , R.layout.list_item,items)
+        gender.setAdapter(adapter)
+        gender.onItemClickListener = AdapterView.OnItemClickListener{adapterView,view , i , l ->
+            val itemSelected = adapterView.getItemAtPosition(i)
+            Toast.makeText(this, "$itemSelected",Toast.LENGTH_SHORT).show()
+        }
+
+
 
         datePickerEt = findViewById(R.id.dobEt)
         val myCalender = Calendar.getInstance()

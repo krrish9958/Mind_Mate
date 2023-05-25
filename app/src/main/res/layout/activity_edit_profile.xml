@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@null"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
     tools:context=".EditProfileActivity">
 
     <androidx.cardview.widget.CardView
@@ -36,14 +37,14 @@
         android:layout_width="match_parent"
         android:layout_height="41dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:text="Save"
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+        app:layout_constraintTop_toBottomOf="@+id/genderDropDown" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -121,9 +122,8 @@
             android:id="@+id/emailEt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Email"
             android:focusable="false"
-            />
+            android:hint="Email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -131,9 +131,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        app:boxBackgroundColor="@color/light_grey"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="@color/light_grey"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -172,9 +172,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        app:boxBackgroundColor="@color/light_grey"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="@color/light_grey"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -182,18 +182,7 @@
         app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:id="@+id/genderEt"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Gender"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
 
     <TextView
@@ -209,5 +198,36 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView11"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/genderDropDown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@null"
+        app:boxCornerRadiusBottomEnd="100dp"
+        app:boxCornerRadiusBottomStart="100dp"
+        app:boxCornerRadiusTopEnd="100dp"
+        app:boxCornerRadiusTopStart="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+        <AutoCompleteTextView
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/light_grey"
+            android:hint="@string/item_label"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
