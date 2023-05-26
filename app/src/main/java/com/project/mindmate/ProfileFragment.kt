@@ -48,22 +48,22 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
 
-        datePickeEt = view.findViewById(R.id.dobEt)
-        val myCalender = Calendar.getInstance()
-        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-            myCalender.set(Calendar.YEAR , year)
-            myCalender.set(Calendar.MONTH , month)
-            myCalender.set(Calendar.DAY_OF_MONTH , dayOfMonth)
-            upDateLable(myCalender)
-        }
-
-        datePickerBtn = view.findViewById(R.id.btnDatePicker)
-        datePickerBtn.setOnClickListener {
-            DatePickerDialog(requireContext(),datePicker,myCalender.get(Calendar.YEAR),myCalender.get(
-                Calendar.MONTH
-            ),myCalender.get(Calendar.DAY_OF_MONTH)).show()
-        }
-
+//        datePickeEt = view.findViewById(R.id.dobEt)
+//        val myCalender = Calendar.getInstance()
+//        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+//            myCalender.set(Calendar.YEAR , year)
+//            myCalender.set(Calendar.MONTH , month)
+//            myCalender.set(Calendar.DAY_OF_MONTH , dayOfMonth)
+//            upDateLable(myCalender)
+//        }
+//
+//        datePickerBtn = view.findViewById(R.id.btnDatePicker)
+//        datePickerBtn.setOnClickListener {
+//            DatePickerDialog(requireContext(),datePicker,myCalender.get(Calendar.YEAR),myCalender.get(
+//                Calendar.MONTH
+//            ),myCalender.get(Calendar.DAY_OF_MONTH)).show()
+//        }
+//
         logoutBtn = view.findViewById(R.id.logoutBtnProfile)
         logoutBtn.setOnClickListener {
             Firebase.auth.signOut()
@@ -71,9 +71,9 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun upDateLable(myCalender: Calendar) {
-        val myFormat = "dd-MM-yyyy"
-        val sdf = SimpleDateFormat(myFormat , Locale.UK)
-        datePickeEt.setText(sdf.format(myCalender.time))
-    }
+//    private fun upDateLable(myCalender: Calendar) {
+//        val myFormat = "dd-MM-yyyy"
+//        val sdf = SimpleDateFormat(myFormat , Locale.UK)
+//        datePickeEt.setText(sdf.format(myCalender.time))
+//    }
 }
