@@ -49,7 +49,7 @@
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@drawable/home_shape_top"
+        android:src="@drawable/profileshapetop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,13 +58,15 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="120dp"
 
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/inter_bold"
         android:text="Hello"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/userName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
@@ -206,6 +208,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:fontFamily="@font/inter_bold"
         android:text="Edit profile"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/editProfileIcon"
@@ -216,14 +219,15 @@
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
 
+        android:layout_marginEnd="120dp"
+        android:fontFamily="@font/inter_bold"
         android:text="Username"
         android:textColor="#470271"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
