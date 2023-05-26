@@ -27,7 +27,7 @@ class EditProfileActivity : AppCompatActivity() {
         gender.setAdapter(adapter)
         gender.onItemClickListener = AdapterView.OnItemClickListener{adapterView,view , i , l ->
             val itemSelected = adapterView.getItemAtPosition(i)
-            Toast.makeText(this, "$itemSelected",Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "$itemSelected",Toast.LENGTH_SHORT).show()
         }
 
 
