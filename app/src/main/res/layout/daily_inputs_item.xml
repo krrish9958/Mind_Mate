@@ -5,7 +5,9 @@
     android:layout_width="150dp"
     android:layout_height="200dp"
     android:layout_marginStart="14dp"
-    app:cardBackgroundColor="@color/palette_5"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/light_grey"
     app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +19,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/mood" />

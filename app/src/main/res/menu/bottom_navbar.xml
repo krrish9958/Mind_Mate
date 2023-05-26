@@ -3,24 +3,24 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/dashboard_ic"
         android:title="Home"
          />
     <item
         android:id="@+id/journal"
-        android:icon="@drawable/ic_journal"
+        android:icon="@drawable/journal_ic"
         android:title="Journal" />
     <item
         android:id="@+id/connect"
-        android:icon="@drawable/ic_post"
+        android:icon="@drawable/connect_ic"
         android:title="Connect" />
     <item
         android:id="@+id/selfCare"
-        android:icon="@drawable/ic_content"
+        android:icon="@drawable/self_care_ic"
         android:title="Self Care" />
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/profile_ic"
         android:title="Profile" />
 
 </menu>

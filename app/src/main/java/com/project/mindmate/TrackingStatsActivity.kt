@@ -10,6 +10,12 @@ import com.project.mindmate.Models.MoodLogsModel
 import com.project.mindmate.Models.SleepLogsModel
 import com.project.mindmate.Models.WaterIntakeModel
 import com.project.mindmate.databinding.ActivityTrackingStatsBinding
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class TrackingStatsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTrackingStatsBinding
@@ -35,6 +41,9 @@ class TrackingStatsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTrackingStatsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
         moodsList = arrayListOf<MoodLogsModel>()
         moodAdapter = MoodLogsAdapter(moodsList)
         moodDataInitialize()
