@@ -63,7 +63,6 @@ class TrackingStatsActivity : AppCompatActivity() {
             R.drawable.empty_glass,
             R.drawable.empty_glass
         )
-
         for (i in waterImg.indices){
             val data = WaterIntakeModel(waterImg[i])
             waterList.add(data)
@@ -73,9 +72,18 @@ class TrackingStatsActivity : AppCompatActivity() {
         binding.waterRecyclerView.adapter = waterAdapter
         waterAdapter.setOnItemClickListener(object : WaterIntakeAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                waterImg[position] = R.drawable.full_glass
-                waterList[position] = WaterIntakeModel(waterImg[position])
-                // Notify the adapter that the item at the clicked position has changed
+                val item = waterList[position]
+                if (item.isOriginalImage) {
+                    // If the current image is the original image, change it to a new image
+                    item.image = R.drawable.full_glass // Replace "new_image_resource" with the desired new image resource
+                    item.isOriginalImage = false
+                } else {
+                    // If the current image is already changed, revert it back to the original image
+                    item.image = R.drawable.empty_glass
+                    item.isOriginalImage = true
+                }
+
+                // Update the RecyclerView item at the clicked position
                 waterAdapter.notifyItemChanged(position)
             }
 
