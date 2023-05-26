@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
 
+        android:fontFamily="@font/ubuntu"
         android:text="Mind "
+        android:textAlignment="textEnd"
         android:textColor="@android:color/darker_gray"
         android:textSize="27sp"
         android:textStyle="bold"
@@ -22,11 +24,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:fontFamily="@font/ubuntu"
         android:text="Mate"
         android:textColor="@color/purple_theme"
         android:textSize="27sp"
@@ -39,12 +43,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -60,12 +67,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUpEmailHeader"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
@@ -82,16 +92,19 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUpPasswordHeader"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:passwordToggleEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/signUpEmailHeader">
+        app:layout_constraintTop_toBottomOf="@+id/signUpEmailHeader"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUpPassword"
@@ -105,16 +118,19 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signUpRePasswordHeader"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:passwordToggleEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordHeader">
+        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordHeader"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signUpRePassword"
@@ -133,8 +149,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:padding="10dp"
-        android:paddingBottom="10dp"
+        android:padding="15dp"
         android:text="Create Account"
         app:backgroundTint="@color/purple_theme"
         app:cornerRadius="10dp"
@@ -164,7 +179,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:strokeColor="@color/purple_theme"
+        app:strokeColor="@color/lightgrey"
         app:strokeWidth="1dp" />
 
     <TextView
@@ -176,26 +191,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpCreateAccBtn" />
 
-    <TextView
-        android:id="@+id/textView10"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="16dp"
-        android:text="Already have an account?"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gSignupBTN" />
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/signintv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="Sign in"
-        android:textColor="#5E95E6"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Already have an account?"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:id="@+id/signintv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Sign in"
+            android:textColor="#5E95E6"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="@+id/textView10" />
 
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

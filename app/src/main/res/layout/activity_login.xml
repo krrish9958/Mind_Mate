@@ -14,6 +14,7 @@
 
         android:layout_marginTop="70dp"
 
+        android:fontFamily="@font/ubuntu"
         android:text="Mind "
         android:textColor="@android:color/darker_gray"
         android:textSize="27sp"
@@ -32,9 +33,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeColor="@color/purple_theme"
         app:boxStrokeErrorColor="#DA8181"
-        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,15 +56,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         app:boxStrokeColor="@color/purple_theme"
-        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:passwordToggleEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/loginEmailHeader">
+        app:layout_constraintTop_toBottomOf="@+id/loginEmailHeader"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/loginPassword"
@@ -77,7 +82,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="298dp"
-        android:text="Forgot Password?"
+        android:text="Forgot Password"
         android:textColor="#5E95E6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +95,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:padding="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:text="Login"
         app:backgroundTint="@color/purple_theme"
         app:cornerRadius="10dp"
@@ -128,40 +134,52 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:strokeColor="@color/purple_theme"
+        app:strokeColor="@color/lightgrey"
         app:strokeWidth="1dp" />
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_medium"
         android:text="Don't have an account?"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.356"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gBtnLogin" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/signUpLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:fontFamily="@font/inter_medium"
         android:text="Sign Up"
         android:textColor="#5E95E6"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6"
         app:layout_constraintVertical_bias="0.0" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:fontFamily="@font/ubuntu"
         android:text="Mate"
         android:textColor="@color/purple_theme"
         android:textSize="27sp"

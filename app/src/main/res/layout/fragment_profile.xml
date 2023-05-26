@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@null"
+    android:background="@color/purple_theme"
+    android:elevation="4dp"
     tools:context=".ProfileFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
         android:clipChildren="false"
         android:duplicateParentState="false"
         android:forceHasOverlappingRendering="false"
@@ -32,73 +33,98 @@
             android:src="@drawable/pp" />
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/home_shape_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/logoutBtnProfile"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:layout_marginStart="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="24dp"
+        android:padding="15dp"
         android:text="log out"
-        app:cornerRadius="50dp"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/profileshapetop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView11"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="Hello"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/userName"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="Hello"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/userName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Username"
+            android:textColor="#470271"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toTopOf="@+id/textView11" />
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+
+        android:layout_marginTop="16dp"
+
 
         android:layout_marginEnd="20dp"
-
-
         app:boxBackgroundColor="@color/light_grey"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeWidth="0dp"
 
+        app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/editProfile">
 
         <com.google.android.material.textfield.TextInputEditText
 
             android:id="@+id/nameEt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Name"
-            android:focusable="false"/>
+            android:focusable="false"
+            android:hint="Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -124,8 +150,8 @@
             android:id="@+id/emailEt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Email"
-            android:focusable="false"/>
+            android:focusable="false"
+            android:hint="Email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -133,9 +159,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        app:boxBackgroundColor="@color/light_grey"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="@color/light_grey"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -159,15 +185,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        app:boxBackgroundColor="@color/light_grey"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="@color/light_grey"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -182,18 +207,19 @@
             android:id="@+id/genderEt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Gender"
-            android:focusable="false"/>
+            android:focusable="false"
+            android:hint="Gender" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/editProfileIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
         android:src="@drawable/baseline_edit_24"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintStart_toEndOf="@+id/cardView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
     <TextView
         android:id="@+id/editProfile"
@@ -202,24 +228,11 @@
         android:layout_marginStart="5dp"
         android:fontFamily="@font/inter_bold"
         android:text="Edit profile"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/editProfileIcon"
         app:layout_constraintStart_toEndOf="@+id/editProfileIcon"
         app:layout_constraintTop_toTopOf="@+id/editProfileIcon" />
 
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="5dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="Username"
-        android:textColor="#470271"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

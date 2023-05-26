@@ -10,8 +10,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -47,6 +49,13 @@ class ProfileFragment : Fragment() {
             val intent = Intent(requireContext(), EditProfileActivity::class.java)
             startActivity(intent)
         }
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val userName = user?.displayName.toString()
+        // getting only the first name of the user
+        val userNameParts = userName?.split(" ")
+        val firstName = userNameParts?.get(0)
+        view.findViewById<TextView>(R.id.userName).text = firstName
 
 //        datePickeEt = view.findViewById(R.id.dobEt)
 //        val myCalender = Calendar.getInstance()

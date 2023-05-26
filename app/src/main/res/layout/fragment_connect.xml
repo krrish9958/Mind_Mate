@@ -66,11 +66,11 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
-            android:src="@drawable/explore"
+            android:src="@drawable/connect_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
