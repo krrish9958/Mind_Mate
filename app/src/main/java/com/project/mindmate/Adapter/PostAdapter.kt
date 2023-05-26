@@ -36,7 +36,6 @@ class PostAdapter(private val postList : ArrayList<PostModel>)
                 clickListener.onItemClick(adapterPosition)
             }
         }
-
     }
 
     interface onItemClickListener{

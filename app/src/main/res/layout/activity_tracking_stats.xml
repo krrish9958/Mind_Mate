@@ -8,24 +8,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/saveLogsBtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="save"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sleepGood" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
 
         <ImageView
-            android:id="@+id/imageView14"
+            android:id="@+id/backImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -41,7 +28,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/inter_bold"
             android:text="Add daily logs"
-            android:textSize="20sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,9 +37,9 @@
             android:id="@+id/dateGrid"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             app:columnCount="5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,10 +51,10 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_margin="8dp"
-                app:cardBackgroundColor="@color/palette_5"
-                android:clickable="true"
                 android:checkable="true"
+                android:clickable="true"
                 android:focusable="true"
+                app:cardBackgroundColor="@color/palette_5"
                 app:cardCornerRadius="10dp"
                 app:layout_column="0"
                 app:layout_row="0">
@@ -99,8 +86,8 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_margin="8dp"
-                android:clickable="true"
                 android:checkable="true"
+                android:clickable="true"
                 android:focusable="true"
                 app:cardBackgroundColor="@color/palette_5"
                 app:cardCornerRadius="10dp"
@@ -166,12 +153,12 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_margin="8dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
                 app:cardBackgroundColor="@color/palette_5"
                 app:cardCornerRadius="10dp"
                 app:layout_column="3"
-                android:clickable="true"
-                android:checkable="true"
-                android:focusable="true"
                 app:layout_row="0">
 
                 <LinearLayout
@@ -201,12 +188,12 @@
                 android:layout_width="50dp"
                 android:layout_height="80dp"
                 android:layout_margin="8dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
                 app:cardBackgroundColor="@color/palette_5"
                 app:cardCornerRadius="10dp"
                 app:layout_column="4"
-                android:clickable="true"
-                android:checkable="true"
-                android:focusable="true"
                 app:layout_row="0">
 
                 <LinearLayout
@@ -233,7 +220,6 @@
 
 
 
-
         </androidx.gridlayout.widget.GridLayout>
 
         <TextView
@@ -248,168 +234,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateGrid" />
 
-        <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/moodGrid"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/moodRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:padding="5dp"
-            app:columnCount="4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView36"
-            app:rowCount="2">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/moodHappy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:layout_column="0"
-                app:layout_row="0">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="10dp"
-                    android:text="Happy"
-                    android:textSize="16sp" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/moodSad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:layout_column="1"
-                app:layout_row="0">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="10dp"
-                    android:text="Sad"
-                    android:textSize="16sp" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/moodLow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:layout_column="2"
-                app:layout_row="0">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="10dp"
-                    android:text="Low"
-                    android:textSize="16sp" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/moodDepressed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:layout_column="3"
-                app:layout_row="0">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="10dp"
-                    android:text="Depressed"
-                    android:textSize="16sp" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/moodOkay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:layout_column="0"
-                app:layout_row="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="10dp"
-                    android:text="Okay"
-                    android:textSize="16sp" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/moodGood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:layout_column="1"
-                app:layout_row="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
-                    android:paddingHorizontal="15dp"
-                    android:paddingVertical="10dp"
-                    android:text="Good"
-                    android:textSize="16sp" />
-            </com.google.android.material.card.MaterialCardView>
-
-        </androidx.gridlayout.widget.GridLayout>
+            app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
         <TextView
-            android:id="@+id/textView37"
+            android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -418,130 +254,82 @@
             android:text="Sleep Quality"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/moodGrid" />
+            app:layout_constraintTop_toBottomOf="@+id/moodRecyclerView" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/sleepGood"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sleepRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+        <TextView
+            android:id="@+id/textView38"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="10dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Water Intake"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView37">
+            app:layout_constraintTop_toBottomOf="@+id/sleepRecyclerView" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:fontFamily="@font/inter"                android:paddingStart="15dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="10dp"
-                android:text="Good" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/sleepBad"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/waterRecyclerView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@+id/sleepGood"
-            app:layout_constraintTop_toBottomOf="@+id/textView37">
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:fontFamily="@font/inter"                android:paddingStart="15dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="10dp"
-                android:text="Bad" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/sleepGreat"
+        <TextView
+            android:id="@+id/textView37"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@+id/sleepBad"
-            app:layout_constraintTop_toBottomOf="@+id/textView37">
+            android:fontFamily="@font/inter_bold"
+            android:text="Add a note (optional)"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waterRecyclerView" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:paddingStart="15dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="10dp"
-                android:text="Great"
-                android:textSize="16sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/sleepTerrible"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@+id/sleepGreat"
-            app:layout_constraintTop_toBottomOf="@+id/textView37">
+            android:layout_marginEnd="24dp"
+            android:background="@color/light_grey"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Type something here"
+            android:inputType="textMultiLine"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:paddingStart="15dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="10dp"
-                android:text="Terrible"
-                android:textSize="16sp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/sleepOkay"
-            android:layout_width="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintStart_toEndOf="@+id/sleepTerrible"
-            app:layout_constraintTop_toBottomOf="@+id/textView37">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter"
-                android:paddingStart="15dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="10dp"
-                android:text="Okay"
-                android:textSize="16sp" />
-        </com.google.android.material.card.MaterialCardView>
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Save Logs"
+            app:cornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
