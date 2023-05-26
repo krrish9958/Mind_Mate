@@ -46,10 +46,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewJournals"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchJournals"
@@ -69,17 +70,16 @@
             android:id="@+id/addFAB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="450dp"
+            android:layout_marginEnd="40dp"
             android:clickable="true"
+            android:contentDescription="Add new journal"
             android:src="@drawable/ic_add"
             app:backgroundTint="@color/purple_theme"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:elevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchJournals"
-            app:layout_constraintVertical_bias="1.0"
-            app:tint="@color/white"
-            android:contentDescription="Add new journal" />
+            app:tint="@color/white" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
