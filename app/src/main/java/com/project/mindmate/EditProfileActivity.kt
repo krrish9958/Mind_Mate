@@ -16,6 +16,7 @@ import java.util.Locale
 class EditProfileActivity : AppCompatActivity() {
     private lateinit var datePickerEt: TextView
     private lateinit var datePickerBtn: ImageView
+    private lateinit var backBtn : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
@@ -47,6 +48,11 @@ class EditProfileActivity : AppCompatActivity() {
                     Calendar.MONTH
                 ), myCalender.get(Calendar.DAY_OF_MONTH)
             ).show()
+        }
+
+        backBtn=findViewById(R.id.backBtnEp)
+        backBtn.setOnClickListener {
+            onBackPressed()
         }
     }
 
