@@ -30,7 +30,7 @@
             android:layout_height="140dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@drawable/pp" />
+            android:src="@drawable/user_img" />
     </androidx.cardview.widget.CardView>
 
     <ImageView

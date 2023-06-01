@@ -1,9 +1,11 @@
 package com.project.mindmate
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +31,7 @@ class SelfCareFragment : Fragment() {
     private lateinit var readHeading : Array<String>
     private lateinit var readPara : Array<String>
     private lateinit var readImg : Array<Int>
+    private lateinit var cardTherapy : CardView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,6 +59,12 @@ class SelfCareFragment : Fragment() {
 
 
 
+
+cardTherapy= view.findViewById(R.id.therapistCard)
+        cardTherapy.setOnClickListener {
+            val intent = Intent(requireContext(), DetailedResourceActivity::class.java)
+            startActivity(intent)
+        }
 
 
 
