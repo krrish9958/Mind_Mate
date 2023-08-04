@@ -165,4 +165,8 @@ class TrackingStatsActivity : AppCompatActivity() {
     private fun saveLogs() {
 
     }
+    private fun setSelectedCard(position: Int) {
+        moodAdapter.setSelectedItem(position)
+        sleepAdapter.setSelectedItem(position)
+    }
 }

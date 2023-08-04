@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sleepCard"
     android:layout_width="100dp"
     android:layout_height="120dp"
     android:layout_marginStart="12dp"
     android:layout_marginTop="10dp"
+    android:background="@drawable/selected_card"
     android:checkable="true"
     android:clickable="true"
-    android:background="@drawable/selected_card"
     android:focusable="true"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp">
