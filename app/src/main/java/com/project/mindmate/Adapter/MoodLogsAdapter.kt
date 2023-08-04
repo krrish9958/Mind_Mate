@@ -75,5 +75,8 @@ class MoodLogsAdapter(private val moodsList : ArrayList<MoodLogsModel>) :
         notifyItemChanged(previousSelectedItemPosition)
         notifyItemChanged(selectedItemPosition)
     }
+    fun getSelectedMoodPosition(): Int {
+        return selectedItemPosition
+    }
 
 }

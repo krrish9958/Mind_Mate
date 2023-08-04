@@ -74,4 +74,8 @@ class SleepLogsAdapter(private val sleepList: ArrayList<SleepLogsModel>) :
         notifyItemChanged(previousSelectedItemPosition)
         notifyItemChanged(selectedItemPosition)
     }
+
+    fun getSelectedSleepPosition(): Int {
+        return selectedItemPosition
+    }
 }

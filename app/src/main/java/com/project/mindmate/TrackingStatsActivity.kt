@@ -1,8 +1,15 @@
 package com.project.mindmate
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.project.mindmate.Adapter.MoodLogsAdapter
 import com.project.mindmate.Adapter.SleepLogsAdapter
 import com.project.mindmate.Adapter.WaterIntakeAdapter
@@ -26,6 +33,9 @@ class TrackingStatsActivity : AppCompatActivity() {
     private lateinit var moodImg: Array<Int>
     private lateinit var moodText: Array<String>
 
+    // for mood triggers
+    private lateinit var moodTriggersChipGroup : ChipGroup
+
     // var for sleep recycler view
     private lateinit var sleepList: ArrayList<SleepLogsModel>
     private lateinit var sleepAdapter: SleepLogsAdapter
@@ -37,16 +47,33 @@ class TrackingStatsActivity : AppCompatActivity() {
     private lateinit var waterAdapter : WaterIntakeAdapter
     private lateinit var waterImg : Array<Int>
 
+    //firestore
+    private lateinit var firestore: FirebaseFirestore
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTrackingStatsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        firestore = FirebaseFirestore.getInstance()
 
         moodsList = arrayListOf<MoodLogsModel>()
         moodAdapter = MoodLogsAdapter(moodsList)
         moodDataInitialize()
+
+        // chips for mood triggers
+        moodTriggersChipGroup = binding.chipGroupMoodTriggers
+        val moodTriggers = listOf("Family", "Friends", "Work", "Relationship/Marriage", "Deadline", "Studies", "Exams")
+        for (trigger in moodTriggers) {
+            val chip = layoutInflater.inflate(
+                R.layout.chip_mood_trigger,
+                moodTriggersChipGroup,
+                false
+            ) as Chip
+            chip.text = trigger
+            moodTriggersChipGroup.addView(chip)
+        }
 
         sleepList = arrayListOf<SleepLogsModel>()
         sleepAdapter = SleepLogsAdapter(sleepList)
@@ -56,6 +83,10 @@ class TrackingStatsActivity : AppCompatActivity() {
         waterAdapter = WaterIntakeAdapter(waterList)
         waterDataInitialize()
 
+        binding.saveLogsBtn.setOnClickListener {
+            saveLogs()
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
         binding.backImg.setOnClickListener {
             onBackPressed()
         }
@@ -98,6 +129,7 @@ class TrackingStatsActivity : AppCompatActivity() {
 
         })
     }
+
 
     private fun sleepDataInitialize() {
         sleepImg = arrayOf(
@@ -162,7 +194,64 @@ class TrackingStatsActivity : AppCompatActivity() {
         binding.moodRecyclerView.adapter = moodAdapter
     }
 
+    fun getNumberOfFullGlasses(): Int {
+        var numberOfFullGlasses = 0
+
+        for (item in waterList) {
+            if (item.image == R.drawable.full_glass) {
+                numberOfFullGlasses++
+            }
+        }
+
+        return numberOfFullGlasses
+    }
+
+    private fun getSelectedTriggers(): ArrayList<String> {
+        val selectedTriggers = arrayListOf<String>()
+        for (i in 0 until moodTriggersChipGroup.childCount) {
+            val chip = moodTriggersChipGroup.getChildAt(i) as Chip
+            if (chip.isChecked) {
+                selectedTriggers.add(chip.text.toString())
+            }
+        }
+        return selectedTriggers
+    }
+
     private fun saveLogs() {
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+
+        val selectedMoodPosition = moodAdapter.getSelectedMoodPosition()
+        val selectedMoodData = moodsList[selectedMoodPosition]
+        val selectedTriggers = getSelectedTriggers()
+
+        val selectedSleepPosition = sleepAdapter.getSelectedSleepPosition()
+        val selectedSleepData = sleepList[selectedSleepPosition]
+
+        val noOfFullGlasses = getNumberOfFullGlasses()
+        val notes = binding.additionalNotesEt.text.toString()
+        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        val timestamp = Timestamp.now()
+
+        val logsDocument = firestore.collection("users").document(uid).collection("daily_logs").document(
+            currentDate
+        )
+        // Save the log data to the document
+        val logData = hashMapOf(
+            "mood" to selectedMoodData.textMood,
+            "triggers" to selectedTriggers,
+            "sleep_quality" to selectedSleepData.textSleep,
+            "water_intake" to noOfFullGlasses,
+            "notes" to notes,
+            "timestamp" to timestamp
+        )
+        logsDocument.set(logData).addOnSuccessListener {
+            Toast.makeText(this, "Logs saved successfully!", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {error ->
+            Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
+
+        }
+
+
 
     }
     private fun setSelectedCard(position: Int) {
