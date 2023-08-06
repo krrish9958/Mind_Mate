@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 
 class HomeFragment : Fragment() {
 
@@ -129,14 +130,34 @@ class HomeFragment : Fragment() {
                                 logsList.add(logData)
                             }
                         }
-                        val mood = logsList.firstOrNull()?.mood ?: ""
-                        val sleepQuality = logsList.firstOrNull()?.sleep_quality ?: ""
-                        val waterIntake = logsList.firstOrNull()?.water_intake ?: ""
-                        input = arrayOf(
-                            mood,
-                            sleepQuality,
-                            waterIntake.toString()
-                        )
+
+                        // Get the current date in the format "yyyy-MM-dd"
+                        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                        val currentDateString = sdf.format(Date())
+
+                        // Filter the logsList to get data for the current date only
+                        val filteredLogsList = logsList.filter { logData ->
+                            val logDateString = sdf.format(logData.timestamp.toDate())
+                            logDateString == currentDateString
+                        }
+
+                        if (filteredLogsList.isNotEmpty()) {
+                            val mood = filteredLogsList[0].mood ?: ""
+                            val sleepQuality = filteredLogsList[0].sleep_quality ?: ""
+                            val waterIntake = filteredLogsList[0].water_intake ?: ""
+                            input = arrayOf(
+                                mood,
+                                sleepQuality,
+                                waterIntake.toString()
+                            )
+                        } else {
+                            input = arrayOf(
+                                "No mood data",
+                                "No sleep data",
+                                "No water data"
+                            )
+                        }
+
                         getInputData()
                     } else {
                         input = arrayOf(
@@ -144,7 +165,8 @@ class HomeFragment : Fragment() {
                             "No sleep data",
                             "No water data"
                         )
-                    getInputData()}
+                        getInputData()
+                    }
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(context, exception.message, Toast.LENGTH_SHORT).show()
@@ -157,7 +179,6 @@ class HomeFragment : Fragment() {
             "Water"
         )
     }
-
     private fun getInputData() {
         for (i in inputIcon.indices){
             val data = InputStatsModel(inputIcon[i], inputType[i], input[i])
@@ -165,10 +186,5 @@ class HomeFragment : Fragment() {
             recyclerView.adapter = adapter
         }
     }
-
-    private fun fetchLogsFromFirestore() {
-
-    }
-
 
 }
