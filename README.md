@@ -1,2 +1,2 @@
-# Mind_Mate
+# Mind Mate
 Your Mental Health Buddy
