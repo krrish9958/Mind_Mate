@@ -20,6 +20,8 @@
 
     </string>
     <string name="from">from</string>
+    <string name="timer_tip">Tip: Use headphones and close your eyes
+        for best experience</string>
 
     // reads string
 </resources>

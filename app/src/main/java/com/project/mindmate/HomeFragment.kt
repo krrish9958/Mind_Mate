@@ -22,19 +22,18 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-import java.util.TimeZone
 
 class HomeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter : InputStatsAdapter
-    private lateinit var inputList : ArrayList<InputStatsModel>
-    private lateinit var inputIcon : Array<Int>
-    private lateinit var inputType : Array<String>
-    private lateinit var input : Array<String>
+    private lateinit var adapter: InputStatsAdapter
+    private lateinit var inputList: ArrayList<InputStatsModel>
+    private lateinit var inputIcon: Array<Int>
+    private lateinit var inputType: Array<String>
+    private lateinit var input: Array<String>
 
-    private lateinit var addLogsCard : MaterialCardView
-    private lateinit var addLogsBtn : FloatingActionButton
+    private lateinit var addLogsCard: MaterialCardView
+    private lateinit var addLogsBtn: FloatingActionButton
 
     private lateinit var firestore: FirebaseFirestore
 
@@ -51,7 +50,8 @@ class HomeFragment : Fragment() {
         val formatter = SimpleDateFormat("MMMM d, yyyy", Locale.getDefault())
         val formattedDate = formatter.format(currentDate)
         val calendar = Calendar.getInstance()
-        val dayOfWeek = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
+        val dayOfWeek =
+            calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
         view.findViewById<TextView>(R.id.dateTv).text = formattedDate
         view.findViewById<TextView>(R.id.dayTv).text = dayOfWeek
         firestore = FirebaseFirestore.getInstance()
@@ -68,7 +68,8 @@ class HomeFragment : Fragment() {
         inputList = arrayListOf<InputStatsModel>()
         adapter = InputStatsAdapter(inputList)
         inputDataInitialize()
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.setHasFixedSize(true)
 
 
@@ -85,8 +86,8 @@ class HomeFragment : Fragment() {
         view.findViewById<CardView>(R.id.connectCard).setOnClickListener {
             navigateToDestinationFragment(ConnectFragment())
         }
-        view.findViewById<CardView>(R.id.selCareCard).setOnClickListener {
-            navigateToDestinationFragment(SelfCareFragment())
+        view.findViewById<CardView>(R.id.meditateCard).setOnClickListener {
+            startActivity(Intent(requireContext(), MeditationActivity::class.java))
         }
 
         return view
@@ -118,7 +119,8 @@ class HomeFragment : Fragment() {
         )
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         if (uid != null) {
-            val logsCollection = firestore.collection("users").document(uid).collection("daily_logs")
+            val logsCollection =
+                firestore.collection("users").document(uid).collection("daily_logs")
             logsCollection.get()
                 .addOnSuccessListener { querySnapshot ->
                     if (!querySnapshot.isEmpty) {
@@ -179,8 +181,9 @@ class HomeFragment : Fragment() {
             "Water"
         )
     }
+
     private fun getInputData() {
-        for (i in inputIcon.indices){
+        for (i in inputIcon.indices) {
             val data = InputStatsModel(inputIcon[i], inputType[i], input[i])
             inputList.add(data)
             recyclerView.adapter = adapter

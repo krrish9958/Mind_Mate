@@ -263,7 +263,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/selCareCard"
+                android:id="@+id/meditateCard"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
@@ -282,7 +282,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
                     android:padding="10dp"
-                    android:src="@drawable/self_care_ic" />
+                    android:src="@drawable/ic_meditate" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -290,7 +290,7 @@
                     android:layout_gravity="center_horizontal|bottom"
                     android:fontFamily="@font/inter_medium"
                     android:paddingBottom="14dp"
-                    android:text="Self Care"
+                    android:text="Meditate"
                     android:textSize="18sp" />
             </com.google.android.material.card.MaterialCardView>
 

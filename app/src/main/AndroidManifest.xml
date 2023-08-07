@@ -15,10 +15,13 @@
         android:theme="@style/Theme.MindMate"
         tools:targetApi="31">
         <activity
-            android:name=".DetailedResourceActivity"
+            android:name=".MeditationTimerActivity"
             android:exported="false" />
         <activity
-            android:name=".MoodStatsActivity"
+            android:name=".MeditationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailedResourceActivity"
             android:exported="false" />
         <activity
             android:name=".TrackingStatsActivity"

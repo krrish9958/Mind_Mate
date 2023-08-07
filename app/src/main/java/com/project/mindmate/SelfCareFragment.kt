@@ -51,7 +51,7 @@ class SelfCareFragment : Fragment() {
         R.drawable.excercise,
             R.drawable.sports,
             R.drawable.music,
-            R.drawable.meditation
+            R.drawable.meditation_img
         )
         recyclerView.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         recyclerView.setHasFixedSize(true)
