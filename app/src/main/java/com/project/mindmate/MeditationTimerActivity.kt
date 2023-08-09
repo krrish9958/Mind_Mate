@@ -33,10 +33,6 @@ class MeditationTimerActivity : AppCompatActivity() {
         // Initialize the CountDownTimer with the total duration
         timer = object : CountDownTimer(totalDurationMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                // Calculate the progress percentage
-                val progress = (millisUntilFinished * 100 / totalDurationMillis).toInt()
-                // Update the progress of the ProgressBar
-                binding.progressBarTimer.progress = progress
 
                 // Update the TextView with the remaining time in minutes and seconds
                 val minutes = millisUntilFinished / (1000 * 60)

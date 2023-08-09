@@ -42,25 +42,10 @@
         android:layout_marginTop="100dp"
         android:fontFamily="@font/inter_medium"
         android:text="1:00"
-        android:textSize="60sp"
+        android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView41" />
-
-    <ProgressBar
-        android:id="@+id/progressBarTimer"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="16dp"
-        android:indeterminate="false"
-        android:indeterminateOnly="true"
-        android:max="100"
-        android:progress="100"
-        android:progressTint="@color/purple_theme"
-        app:layout_constraintBottom_toBottomOf="@+id/timerCountdown"
-        app:layout_constraintEnd_toEndOf="@+id/timerCountdown"
-        app:layout_constraintStart_toStartOf="@+id/timerCountdown"
-        app:layout_constraintTop_toTopOf="@+id/timerCountdown" />
 
 
     <ImageView
